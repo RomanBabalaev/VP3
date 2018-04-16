@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="ru">
+<html <?php language_attributes(); ?> class="no-js">
 <head>
     <title>Главная страница</title>
     <meta charset="utf-8">
@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="/css/libs.min.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/media.css">
+
+    <!--[if lt IE 9]>
+    <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
+    <![endif]-->
+    <?php wp_head(); ?>
 </head>
 <body>
 <div class="wrapper">
@@ -16,21 +21,14 @@
         <div class="top-header">
             <div class="top-header__wrap">
                 <div class="logotype-block">
-                    <div class="logo-wrap"><a href="/"><img src="/img/logot.svg" alt="Логотип" class="logo-wrap__logo-img"></a></div>
+                    <div class="logo-wrap"><a href="/"><img src="/img/logo.svg" alt="Логотип" class="logo-wrap__logo-img"></a></div>
                 </div>
-                <ul class="nav-list">
-                  <!-- <?php /*wp_nav_menu([
-                           'container' => false,
-                            'menu_class'=>'nav-list'
-                   ]);*/?>
-                </ul>-->
-                    <ul class="nav-list">
-                        <li class="nav-list__nav-item"><a href="#" class="nav-list__nav-item__nav-link">Главная</a></li>
-                        <li class="nav-list__nav-item"><a href="#" class="nav-list__nav-item__nav-link">О сервисе</a></li>
-                        <li class="nav-list__nav-item"><a href="#" class="nav-list__nav-item__nav-link">Новости</a></li>
-                        <li class="nav-list__nav-item"><a href="#" class="nav-list__nav-item__nav-link">Последние акции</a></li>
-                    </ul>
-
+                <nav class="main-navigation">
+                    <?php wp_nav_menu([
+                        'container' => false,
+                        'menu_class' => 'nav-list'
+                    ]); ?>
+                </nav>
             </div>
         </div>
         <div class="bottom-header">
@@ -42,5 +40,3 @@
             </div>
         </div>
     </header>
-    <!-- header_end-->
-    <div class="main-content">
